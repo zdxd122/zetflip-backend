@@ -76,6 +76,11 @@ router.post("/get-address", accountController.authenticateToken, roblox_auth_che
 router.post("/callback", oxaPayDepositController.callback);
 
 
+// HEALTH CHECK
+router.get("/health", (req, res) => {
+  res.json({ status: "ok", timestamp: new Date().toISOString() });
+});
+
 // MISC ROUTES
 router.use("*", function (req, res) {
   return res.json({
