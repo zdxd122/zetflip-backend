@@ -402,11 +402,11 @@ exports.join_coinflip = [
         getCurrentStats(),
         getPreviousCoinflips(),
       ]);
-      emitEvent("COINFLIP_UPDATE", {
-        activeFlips,
-        currentStats,
-        previousFlips,
-      });
+      // emitEvent("COINFLIP_UPDATE", {
+      //   activeFlips,
+      //   currentStats,
+      //   previousFlips,
+      // });
       emitEvent("COINFLIP_FINISHED", foundCF);
       setTimeout(async () => {
         await Coinflip.updateOne(
