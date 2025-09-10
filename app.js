@@ -15,7 +15,7 @@ const crypto = require("crypto");
 const indexRouter = require("./routes/index");
 const { initSocket, getIO } = require("./utils/socket");
 const { Webhook } = require("discord-webhook-node");
-const { MONGODB_URI } = require("./config");
+const { MONGODB_URI, PORT } = require("./config");
 const http = require("http");
 const compression = require("compression");
 const utils = require("./utils/events");
@@ -30,9 +30,6 @@ withdrawCryptoHook.setAvatar(
 );
 
 const app = express();
-
-const socketServer = http.createServer(app);
-initSocket(socketServer);
 
 mongoose.set("strictQuery", false);
 const mongoDB = MONGODB_URI;
@@ -283,9 +280,6 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-socketServer.listen(6565, () => {
-  console.log("Socket is running on port 6565");
-});
 
 function emitEvent(eventName, data) {
   io.emit(eventName, data);
