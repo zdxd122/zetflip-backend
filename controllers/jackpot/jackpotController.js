@@ -143,7 +143,7 @@ exports.join_jackpot = [
       res.sendStatus(200);
 
       const jackpotData = await getJackpot();
-      emitEvent("JACKPOT_UPDATE", jackpotData);
+      // emitEvent("JACKPOT_UPDATE", jackpotData); // Commented out for Railway
 
       if (recentJackpot.state == "Waiting") {
         setTimeout(async () => {
@@ -256,7 +256,7 @@ const play_jackpot = asyncHandler(async (req, res, next) => {
   }
 
   const jackpotData = await getJackpot();
-  emitEvent("JACKPOT_UPDATE", jackpotData);
+  // emitEvent("JACKPOT_UPDATE", jackpotData); // Commented out for Railway
 });
 
 const close_jackpot = asyncHandler(async (req, res, next) => {
