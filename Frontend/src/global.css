@@ -1,0 +1,377 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: none !important;
+  background-image: none !important;
+}
+
+* {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.LoadingScreen {
+  width: 100%;
+  height: 100%;
+  background-color: #19172c;
+  z-index: 22;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    animation: infinite loadingOpacity 3s;
+    content: url("./assets/images/longLogo.svg");
+    width: 200px;
+    height: auto;
+  }
+}
+
+@keyframes loadingOpacity {
+  0% {
+    opacity: 100%;
+  }
+
+  50% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+/* Full-Screen Refresh Overlay */
+.FullScreenRefreshOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #0f0c1f 0%, #1a1629 50%, #0f0c1f 100%);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000000;
+  animation: fullScreenRefreshFadeIn 0.3s ease-out;
+  border: 3px solid rgba(134, 58, 255, 0.6);
+  box-shadow: inset 0 0 100px rgba(134, 58, 255, 0.1);
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0px);
+  pointer-events: none; /* Prevent interaction with overlay */
+  user-select: none; /* Prevent text selection */
+}
+
+.FullScreenRefreshSpinner {
+  width: 70px;
+  height: 70px;
+  border: 6px solid rgba(255, 255, 255, 0.15);
+  border-top: 6px solid #863aff;
+  border-right: 6px solid #22c55e;
+  border-radius: 50%;
+  animation: fullScreenRefreshSpin 1.2s linear infinite;
+  margin-bottom: 30px;
+  box-shadow:
+    0 0 40px rgba(134, 58, 255, 0.6),
+    inset 0 0 20px rgba(134, 58, 255, 0.2);
+  position: relative;
+}
+
+.FullScreenRefreshSpinner::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: fullScreenRefreshPulseRing 2s ease-in-out infinite;
+}
+
+.FullScreenRefreshSpinnerInner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.25);
+  border-top: 4px solid #f59e0b;
+  border-left: 4px solid #ef4444;
+  border-radius: 50%;
+  animation: fullScreenRefreshSpin 0.9s linear infinite reverse;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 30px rgba(245, 158, 11, 0.5),
+    inset 0 0 15px rgba(239, 68, 68, 0.3);
+}
+
+.FullScreenRefreshOverlay p {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+  text-shadow:
+    0 0 10px rgba(134, 58, 255, 0.8),
+    0 0 20px rgba(134, 58, 255, 0.6),
+    0 0 30px rgba(134, 58, 255, 0.4);
+  animation: fullScreenRefreshPulse 2.5s ease-in-out infinite;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #ffffff, #bfbfcd, #ffffff);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation:
+    fullScreenRefreshPulse 2.5s ease-in-out infinite,
+    fullScreenRefreshTextGlow 3s ease-in-out infinite;
+}
+
+@keyframes fullScreenRefreshTextGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes fullScreenRefreshFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes fullScreenRefreshSpin {
+  0% {
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    filter: hue-rotate(90deg);
+  }
+  50% {
+    filter: hue-rotate(180deg);
+  }
+  75% {
+    filter: hue-rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes fullScreenRefreshPulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes fullScreenRefreshPulse {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1) translateY(0px);
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+    filter: brightness(1);
+  }
+  25% {
+    filter: brightness(1.2);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08) translateY(-2px);
+    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.1);
+  }
+  75% {
+    filter: brightness(1.3);
+  }
+}
+
+/* Pre-emptive Refresh Prevention - Shows loading screen immediately */
+.preemptive-refresh-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(135deg, #0f0c1f 0%, #1a1629 50%, #0f0c1f 100%) !important;
+  backdrop-filter: blur(12px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 999999 !important;
+  animation: preemptiveFadeIn 0.05s ease-out !important;
+  border: 3px solid rgba(134, 58, 255, 0.6) !important;
+  box-shadow: inset 0 0 100px rgba(134, 58, 255, 0.1) !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+.preemptive-refresh-overlay .preemptive-spinner {
+  width: 70px !important;
+  height: 70px !important;
+  border: 6px solid rgba(255, 255, 255, 0.15) !important;
+  border-top: 6px solid #863aff !important;
+  border-right: 6px solid #22c55e !important;
+  border-radius: 50% !important;
+  animation: preemptiveSpin 1.2s linear infinite !important;
+  margin-bottom: 30px !important;
+  box-shadow: 0 0 40px rgba(134, 58, 255, 0.6) !important;
+}
+
+.preemptive-refresh-overlay .preemptive-text {
+  color: #ffffff !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  margin: 0 !important;
+  text-shadow: 0 0 10px rgba(134, 58, 255, 0.8) !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  animation: preemptivePulse 2.5s ease-in-out infinite !important;
+}
+
+@keyframes preemptiveFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes preemptiveSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes preemptivePulse {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+}
+
+/* Hide preemptive overlay when React takes over */
+.preemptive-refresh-overlay.hide {
+  animation: preemptiveFadeOut 0.3s ease-out !important;
+}
+
+@keyframes preemptiveFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+/* Ultimate fade-out animation for bulletproof overlay */
+@keyframes ultimate-fade-out {
+  from {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+  to {
+    opacity: 0 !important;
+    transform: scale(0.98) !important;
+  }
+}
+
+/* ABSOLUTE VISUAL FLASH PREVENTION - Nuclear Option */
+#ultimate-preemptive-overlay,
+.preemptive-refresh-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 2147483647 !important;
+  background: linear-gradient(135deg, #0f0c1f 0%, #1a1629 50%, #0f0c1f 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  animation: none !important;
+  visibility: visible !important;
+  overflow: hidden !important;
+}
+
+/* Hide ALL content during refresh */
+#ultimate-preemptive-overlay ~ *,
+.preemptive-refresh-overlay ~ * {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Force hide React root during preemptive overlay */
+#ultimate-preemptive-overlay ~ #root,
+.preemptive-refresh-overlay ~ #root {
+  display: none !important;
+}
+
+/* Nuclear option: hide everything except our overlay */
+body:has(#ultimate-preemptive-overlay) > *:not(#ultimate-preemptive-overlay),
+body:has(.preemptive-refresh-overlay) > *:not(.preemptive-refresh-overlay) {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  display: none !important;
+}

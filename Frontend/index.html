@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/adoptflip_bloxpvp_scaled.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLOXPVP | The LEADING in-game ROBLOX game site!</title>
+    <meta
+      name="description"
+      content="BLOXPVP, an online site where players can use in-game items to enjoy a variety of games against others such as Coinflip, Jackpot with a user-friendly interface."
+    />
+    <meta
+      name="keywords"
+      content="BLOXPVP, bloxluck, bloxybet, mm2, gambling, mm2 buy, mm2 marketplace, mm2 gambling"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(135deg, #0f0c1f 0%, #1a1528 50%, #0f0c1f 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 999999;
+      font-family: 'Poppins', sans-serif;
+    ">
+      <div style="
+        width: 60px;
+        height: 60px;
+        border: 5px solid rgba(255, 255, 255, 0.1);
+        border-top: 5px solid #863aff;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin-bottom: 20px;
+      "></div>
+      <div style="
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        background: linear-gradient(45deg, #863aff, #c257ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      ">Loading</div>
+    </div>
+
+    <div id="root"></div>
+
+
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      /* Ensure body allows normal scrolling */
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #0f0c1f 0%, #1a1528 50%, #0f0c1f 100%) !important;
+        min-height: 100vh;
+        /* Allow normal scrolling */
+      }
+
+      html {
+        height: 100%;
+        /* Allow normal scrolling */
+      }
+    </style>
+
+    <script>
+      // Global function to hide loading screen
+      window.hideLoadingScreen = function() {
+        const screen = document.getElementById('loading-screen');
+        if (screen) {
+          // Aggressive immediate hide
+          screen.style.transition = 'none';
+          screen.style.opacity = '0';
+          screen.style.visibility = 'hidden';
+          screen.style.display = 'none';
+          console.log('✅ Loading screen hidden immediately');
+        }
+      };
+
+      console.log('🚀 Loading screen displayed');
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+.ModalBackground {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 104;
+  .loadingContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 105;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .loading {
+      width: 50px;
+      height: 50px;
+      border: 6px solid rgb(21, 18, 35);
+      border-radius: 50%;
+      border-top: 6px solid #863aff;
+      animation: spin 0.5s linear infinite;
+    }
+  }
+  .DepositModal {
+    width: 565px;
+    padding: 0px 15px 15px 15px;
+    background: #1f1834;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    position: relative;
+    .CloseButton {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+    .CloseButton:hover {
+      background: rgba(134, 58, 255, 0.2);
+      transform: translateY(-1px);
+    }
+    .Header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 30px;
+      padding: 10px 0px;
+      width: 100%;
+      .HeaderContent {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        p {
+          color: #863aff;
+          font-weight: 700;
+          font-size: 17px;
+        }
+        img {
+          width: 18px;
+          height: auto;
+        }
+      }
+      &::before {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          rgba(134, 58, 255, 0) 0%,
+          #863aff 100%
+        );
+      }
+      &::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          #863aff 0%,
+          rgba(134, 58, 255, 0) 100%
+        );
+      }
+    }
+    .Methods {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #151223;
+      box-shadow: 0px 18px 29.200000762939453px 0px #0000001a inset;
+      border-radius: 0px 0px 20px 20px;
+      flex: auto;
+      padding: 30px 40px;
+      gap: 30px;
+      max-width: 1150px;
+      img {
+        width: 200px;
+        height: 200px;
+        display: block;
+        cursor: pointer;
+        -webkit-user-drag: none;
+        object-fit: contain;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+      }
+
+      img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(134, 58, 255, 0.3);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .Methods {
+    flex-wrap: wrap;
+    gap: 15px !important;
+    img {
+      width: 100px !important;
+      height: 100px !important;
+    }
+  }
+}

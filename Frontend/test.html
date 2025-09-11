@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOXPVP - TEST PAGE</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0c1f 0%, #1a1528 50%, #0f0c1f 100%);
+            color: white;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 50px;
+            border: 3px solid #863aff;
+            border-radius: 25px;
+            background: rgba(134, 58, 255, 0.1);
+            box-shadow: 0 0 40px rgba(134, 58, 255, 0.4);
+        }
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #863aff, #c257ff, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(134, 58, 255, 0.8);
+            font-weight: bold;
+        }
+        .status {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(134, 58, 255, 0.3);
+            margin: 20px 0;
+        }
+        .status h3 {
+            margin-top: 0;
+            color: #863aff;
+            font-size: 1.4rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            text-align: left;
+            color: #ffffff;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .success {
+            color: #22c55e;
+            font-weight: bold;
+        }
+        .info {
+            background: linear-gradient(135deg, rgba(134, 58, 255, 0.2), rgba(255, 107, 107, 0.2));
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 20px;
+        }
+        .info h4 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BLOXPVP</h1>
+        <div style="font-size: 1.8rem; margin-bottom: 2rem; color: #ffffff; font-weight: 600;">
+            🎉 TEST PAGE WORKING! 🎉
+        </div>
+
+        <div class="status">
+            <h3>✅ SUCCESS - THIS PAGE LOADS!</h3>
+            <div class="grid">
+                <div><span class="success">✅</span> HTML: Working</div>
+                <div><span class="success">✅</span> CSS: Working</div>
+                <div><span class="success">✅</span> Server: Running</div>
+                <div><span class="success">✅</span> Port 5173: Active</div>
+                <div><span class="success">✅</span> Browser: Connected</div>
+                <div><span class="success">✅</span> Network: Working</div>
+            </div>
+        </div>
+
+        <div class="info">
+            <h4>🚀 System Status</h4>
+            <div class="flex">
+                <span><strong>Frontend:</strong> http://localhost:5173</span>
+                <span><strong>Backend:</strong> http://localhost:3001</span>
+                <span><strong>Status:</strong> All Systems Operational</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 1.2rem; color: #bfbfcd; font-style: italic;">
+            🎰 If you can see this page, your server is working perfectly!
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <h4 style="margin-top: 0; color: #863aff;">🔧 Next Steps:</h4>
+            <ul style="text-align: left; color: #ffffff; line-height: 1.8; padding-left: 20px;">
+                <li>✅ This test page works - server is fine</li>
+                <li>❓ React app might have issues</li>
+                <li>🔄 Try clearing browser cache (Ctrl+F5)</li>
+                <li>🌐 Try different browser</li>
+                <li>🔍 Check browser console for errors</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        console.log('✅ BLOXPVP Test Page Loaded Successfully!');
+        console.log('🎯 If you can see this in console, JavaScript is working!');
+        console.log('🚀 Server is running on port 5173');
+        console.log('🔗 Backend is on port 3001');
+    </script>
+</body>
+</html>
